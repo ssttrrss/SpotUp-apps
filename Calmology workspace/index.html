@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Calmology - مساحة عمل هادئة في القاهرة، مفتوح 24 ساعة. المكان المثالي للمذاكرة والعمل بتركيز. منطقة تدخين وغير تدخين، واي فاي سريع، مشروبات عالية الجودة.">
+    <meta name="keywords" content="coworking space, Cairo, Manial, مساحة عمل, المنيل, القاهرة, مذاكرة, دراسة, 24 ساعة, workspace">
+    <meta name="author" content="Calmology">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Calmology | مساحة عملك الهادئة - مفتوح 24 ساعة">
+    <meta property="og:description" content="اعثر على منطقة هدوئك. مساحة عمل مصممة للتركيز العميق والإنتاجية في قلب القاهرة.">
+    <meta property="og:type" content="website">
+    
+    <title>Calmology | مساحة عملك الهادئة</title>
+
+    <!-- Favicon - Using a calm emoji as placeholder -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧘</text></svg>">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0d9488',
+                        'primary-light': '#14b8a6',
+                        'primary-dark': '#0f766e',
+                        secondary: '#059669',
+                        accent: '#fbbf24',
+                        dark: '#0f172a'
+                    },
+                    fontFamily: {
+                        sans: ['Cairo', 'Inter', 'system-ui', 'sans-serif'],
+                        english: ['Inter', 'Cairo', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glow': '0 0 40px rgba(13, 148, 136, 0.25)',
+                        'glow-lg': '0 0 60px rgba(13, 148, 136, 0.35)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-slate-50 text-dark antialiased">
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         NAVIGATION BAR
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
+        <div class="container-custom flex justify-between items-center nav-container">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:scale-105 transition">
+                    C
+                </div>
+                <div>
+                    <span class="text-xl font-bold text-slate-800">Calmology</span>
+                    <span class="block text-xs text-teal-600 font-medium" data-en="Find Your Calm" data-ar="اعثر على هدوؤك">اعثر على هدوؤك</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-6 glass px-6 py-2.5 rounded-full">
+                <a href="#home" class="nav-link text-sm font-semibold" data-en="Home" data-ar="الرئيسية">الرئيسية</a>
+                <a href="#features" class="nav-link text-sm font-semibold" data-en="Features" data-ar="المميزات">المميزات</a>
+                <a href="#pricing" class="nav-link text-sm font-semibold" data-en="Pricing" data-ar="الأسعار">الأسعار</a>
+                <a href="#location" class="nav-link text-sm font-semibold" data-en="Location" data-ar="الموقع">الموقع</a>
+                <a href="#reviews" class="nav-link text-sm font-semibold" data-en="Reviews" data-ar="التقييمات">التقييمات</a>
+            </div>
+
+            <!-- Right Side Actions -->
+            <div class="flex items-center gap-3">
+                <!-- 24/7 Badge -->
+                <div class="hidden sm:flex badge-24-7">
+                    <i class="fas fa-clock"></i>
+                    <span>24/7</span>
+                </div>
+
+                <!-- Language Toggle -->
+                <button id="langToggle"
+                    class="w-10 h-10 rounded-full border border-slate-200 bg-white flex items-center justify-center hover:bg-slate-50 transition font-bold text-xs"
+                    aria-label="Toggle Language">
+                    EN
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden w-10 h-10 rounded-full border border-slate-200 bg-white flex items-center justify-center"
+                    aria-label="Open Menu">
+                    <i class="fas fa-bars text-slate-600"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden flex-col glass mt-4 mx-4 rounded-2xl p-6 space-y-4">
+            <a href="#home" class="block text-slate-700 font-semibold py-2" data-en="Home" data-ar="الرئيسية">الرئيسية</a>
+            <a href="#features" class="block text-slate-700 font-semibold py-2" data-en="Features" data-ar="المميزات">المميزات</a>
+            <a href="#pricing" class="block text-slate-700 font-semibold py-2" data-en="Pricing" data-ar="الأسعار">الأسعار</a>
+            <a href="#location" class="block text-slate-700 font-semibold py-2" data-en="Location" data-ar="الموقع">الموقع</a>
+            <a href="#reviews" class="block text-slate-700 font-semibold py-2" data-en="Reviews" data-ar="التقييمات">التقييمات</a>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         HERO SECTION
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <header id="home" class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
+        <!-- Background Blobs -->
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="hero-blob hero-blob-3"></div>
+
+        <div class="container-custom relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <!-- Content -->
+                <div class="space-y-8 text-center lg:text-right">
+                    <!-- Rating Badge -->
+                    <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/80 backdrop-blur border border-slate-100 shadow-md">
+                        <div class="flex items-center gap-1 text-amber-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="font-bold text-slate-700" id="statRating">5.0</span>
+                        <span class="text-slate-400">•</span>
+                        <span class="text-slate-500 text-sm"><span id="statReviews">34</span> <span data-en="reviews" data-ar="تقييم">تقييم</span></span>
+                    </div>
+
+                    <!-- Main Heading -->
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight">
+                        <span id="heroTitle" class="block text-slate-800">اعثر على</span>
+                        <span id="heroHighlight" class="text-gradient">منطقة هدوئك</span>
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p id="heroSlogan" class="text-lg md:text-xl text-slate-500 max-w-lg mx-auto lg:mx-0 lg:mr-0 leading-relaxed">
+                        مساحة عمل هادئة مصممة للتركيز العميق والإنتاجية. مفتوح ٢٤ ساعة، كل يوم. هدوؤك ينتظرك.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="https://wa.me/201110188600" data-link="whatsapp" target="_blank"
+                            class="btn-primary group">
+                            <i class="fab fa-whatsapp text-xl group-hover:scale-110 transition"></i>
+                            <span data-en="Book Now" data-ar="احجز الآن">احجز الآن</span>
+                        </a>
+                        <a href="#pricing" class="btn-secondary">
+                            <span data-en="View Pricing" data-ar="شوف الأسعار">شوف الأسعار</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="stats-bar pt-6">
+                        <div class="stat-item">
+                            <i class="fas fa-clock text-teal-500"></i>
+                            <span data-en="Open 24/7" data-ar="مفتوح 24 ساعة">مفتوح 24 ساعة</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-users text-emerald-500"></i>
+                            <span class="stat-value" id="statMembers">200+</span>
+                            <span data-en="Members" data-ar="عضو">عضو</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-wifi text-teal-500"></i>
+                            <span data-en="Fast WiFi" data-ar="واي فاي سريع">واي فاي سريع</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="relative hero-image-wrapper">
+                    <!-- Glow Effect -->
+                    <div class="hero-image-glow"></div>
+                    
+                    <!-- Main Image -->
+                    <img id="heroImg"
+                        src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
+                        alt="Calmology Workspace"
+                        class="hero-image w-full aspect-[4/3] object-cover">
+
+                    <!-- Floating Card - 24/7 -->
+                    <div class="absolute -bottom-4 -right-4 glass-card p-5 rounded-2xl floating-card hidden lg:block"
+                        style="animation-delay: 0.5s;">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-xl flex items-center justify-center text-white">
+                                <i class="fas fa-clock text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-500" data-en="Always Open" data-ar="دائماً مفتوح">دائماً مفتوح</p>
+                                <p class="text-2xl font-bold text-slate-800">24/7 🌙</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Card - Price -->
+                    <div class="absolute -top-4 -left-4 glass-card p-4 rounded-2xl floating-card hidden lg:block"
+                        style="animation-delay: 1s;">
+                        <div class="text-center">
+                            <p class="text-xs text-slate-500 mb-1" data-en="Starting from" data-ar="ابتداءً من">ابتداءً من</p>
+                            <p class="text-2xl font-bold text-teal-600">25<span class="text-sm font-medium text-slate-400"> جنيه/ساعة</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         FEATURES SECTION
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section id="features" class="py-24 bg-white relative overflow-hidden">
+        <!-- Background Decoration -->
+        <div class="absolute top-0 left-0 w-96 h-96 bg-teal-50 rounded-full blur-3xl opacity-50"></div>
+
+        <div class="container-custom relative z-10">
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-teal-100 text-teal-700 text-sm font-bold mb-4"
+                    data-en="Why Calmology?" data-ar="ليه Calmology؟">ليه Calmology؟</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" data-en="Everything You Need" data-ar="كل اللي محتاجه">
+                    كل اللي محتاجه
+                </h2>
+                <p class="text-slate-500 text-lg" data-en="A workspace designed for deep focus and maximum productivity." data-ar="مساحة عمل مصممة للتركيز العميق وأقصى إنتاجية.">
+                    مساحة عمل مصممة للتركيز العميق وأقصى إنتاجية.
+                </p>
+            </div>
+
+            <!-- Features Grid -->
+            <div id="features-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                <!-- Filled by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         PRICING SECTION
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section id="pricing" class="py-24 bg-gradient-to-b from-slate-50 to-white relative">
+        <div class="container-custom">
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-amber-100 text-amber-700 text-sm font-bold mb-4"
+                    data-en="Simple Pricing" data-ar="أسعار بسيطة">أسعار بسيطة</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" data-en="Pay As You Go" data-ar="ادفع على قد ما تقعد">
+                    ادفع على قد ما تقعد
+                </h2>
+                <p class="text-slate-500 text-lg" data-en="Flexible plans that fit your schedule. No hidden fees." data-ar="خطط مرنة تناسب جدولك. بدون رسوم مخفية.">
+                    خطط مرنة تناسب جدولك. بدون رسوم مخفية.
+                </p>
+            </div>
+
+            <!-- Pricing Cards Grid -->
+            <div id="pricing-container" class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <!-- Filled by JavaScript -->
+            </div>
+
+            <!-- All Plans Include -->
+            <div class="mt-16 text-center glass-card p-6 rounded-2xl max-w-3xl mx-auto">
+                <p class="text-slate-600 font-semibold mb-4" data-en="All plans include:" data-ar="كل الخطط تشمل:">كل الخطط تشمل:</p>
+                <div class="flex flex-wrap justify-center gap-6 text-sm">
+                    <div class="flex items-center gap-2 text-slate-600">
+                        <i class="fas fa-wifi text-teal-500"></i>
+                        <span data-en="High-Speed WiFi" data-ar="واي فاي سريع">واي فاي سريع</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-slate-600">
+                        <i class="fas fa-plug text-emerald-500"></i>
+                        <span data-en="Power Outlets" data-ar="منافذ شحن">منافذ شحن</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-slate-600">
+                        <i class="fas fa-snowflake text-blue-500"></i>
+                        <span data-en="Air Conditioning" data-ar="تكييف">تكييف</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-slate-600">
+                        <i class="fas fa-broom text-purple-500"></i>
+                        <span data-en="Clean Space" data-ar="مكان نظيف">مكان نظيف</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         LOCATION SECTION
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section id="location" class="py-24 bg-white">
+        <div class="container-custom">
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-teal-100 text-teal-700 text-sm font-bold mb-4"
+                    data-en="Find Us" data-ar="مكاننا">مكاننا</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" data-en="Visit Us" data-ar="زورنا">
+                    زورنا
+                </h2>
+                <p class="text-slate-500 text-lg" data-en="Located in the heart of Manial, Cairo." data-ar="في قلب المنيل، القاهرة.">
+                    في قلب المنيل، القاهرة.
+                </p>
+            </div>
+
+            <!-- Location Card -->
+            <div id="locations-container" class="max-w-2xl mx-auto">
+                <!-- Filled by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         GALLERY SECTION
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section id="gallery" class="py-24 bg-dark text-white overflow-hidden">
+        <div class="container-custom">
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12">
+                <div>
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-white/10 text-white/80 text-sm font-bold mb-4"
+                        data-en="Gallery" data-ar="معرض الصور">معرض الصور</span>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold" data-en="Our Space" data-ar="مساحتنا">
+                        مساحتنا
+                    </h2>
+                    <p class="text-slate-400 mt-2" data-en="Take a look at where the magic happens." data-ar="شوف المكان اللي بتحصل فيه السحر.">
+                        شوف المكان اللي بتحصل فيه السحر.
+                    </p>
+                </div>
+                
+                <!-- Navigation Arrows -->
+                <div class="flex gap-3">
+                    <button id="gallery-prev" class="gallery-nav-btn" aria-label="Previous">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button id="gallery-next" class="gallery-nav-btn" aria-label="Next">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Gallery Container -->
+            <div id="gallery-container" class="scrollbar-hide">
+                <!-- Filled by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         TESTIMONIALS (Google Reviews)
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section id="reviews" class="py-24 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
+        <!-- Decorative Elements -->
+        <div class="absolute -left-20 top-20 w-96 h-96 bg-teal-50 rounded-full blur-3xl"></div>
+
+        <div class="container-custom relative z-10">
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-md border border-slate-100 mb-4">
+                    <i class="fab fa-google text-[#4285F4]"></i>
+                    <span class="font-bold text-slate-700" data-en="Google Reviews" data-ar="تقييمات جوجل">تقييمات جوجل</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" data-en="What People Say" data-ar="الناس بتقول إيه">
+                    الناس بتقول إيه
+                </h2>
+                <p class="text-slate-500 text-lg" data-en="Real reviews from our amazing community." data-ar="تقييمات حقيقية من مجتمعنا الرائع.">
+                    تقييمات حقيقية من مجتمعنا الرائع.
+                </p>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div id="testimonials-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+                <!-- Filled by JavaScript -->
+            </div>
+
+            <!-- User Comments Section -->
+            <div class="border-t border-slate-200 pt-16">
+                <h3 class="text-2xl font-bold text-center mb-8" data-en="Share Your Experience" data-ar="شاركنا تجربتك">
+                    شاركنا تجربتك
+                </h3>
+                
+                <!-- Comments List -->
+                <div id="comments-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    <!-- Filled by JavaScript -->
+                </div>
+
+                <!-- Comment Form -->
+                <div class="max-w-xl mx-auto comment-form-container">
+                    <form id="commentForm" class="space-y-4">
+                        <input type="text" id="commentName" required
+                            class="comment-input"
+                            placeholder="اسمك">
+                        <textarea id="commentText" rows="4" required
+                            class="comment-input resize-none"
+                            placeholder="إيه رأيك في المكان؟"></textarea>
+                        <button type="submit" class="comment-submit-btn w-full justify-center">
+                            <i class="fas fa-paper-plane"></i>
+                            <span data-en="Post Comment" data-ar="نشر التعليق">نشر التعليق</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <footer id="contact" class="footer">
+        <div class="container-custom">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Column -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center text-white font-bold text-xl">
+                            C
+                        </div>
+                        <div>
+                            <span class="text-xl font-bold text-white">Calmology</span>
+                            <span class="block text-xs text-teal-400 font-medium">Find Your Calm</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 max-w-sm leading-relaxed mb-6"
+                        data-en="Your calm space for deep focus and productivity. Open 24/7, every day. Join our community of focused minds."
+                        data-ar="مساحتك الهادئة للتركيز العميق والإنتاجية. مفتوح ٢٤ ساعة، كل يوم. انضم لمجتمعنا من العقول المركزة.">
+                        مساحتك الهادئة للتركيز العميق والإنتاجية. مفتوح ٢٤ ساعة، كل يوم. انضم لمجتمعنا من العقول المركزة.
+                    </p>
+                    <!-- Social Links -->
+                    <div class="flex gap-3">
+                        <a href="#" data-link="facebook" target="_blank"
+                            class="social-btn facebook" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" data-link="instagram" target="_blank"
+                            class="social-btn instagram" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/201110188600" data-link="whatsapp" target="_blank"
+                            class="social-btn whatsapp" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Column -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white" data-en="Contact" data-ar="تواصل معنا">تواصل معنا</h4>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="tel:01110188600" data-link="phone" data-show-text="true"
+                                class="flex items-center gap-3 text-slate-400 hover:text-white transition footer-link">
+                                <i class="fas fa-phone text-teal-500"></i>
+                                011 10188600
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/201110188600" data-link="whatsapp" target="_blank"
+                                class="flex items-center gap-3 text-slate-400 hover:text-white transition footer-link">
+                                <i class="fab fa-whatsapp text-green-500"></i>
+                                <span data-en="WhatsApp Chat" data-ar="دردشة واتساب">دردشة واتساب</span>
+                            </a>
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-400">
+                            <i class="fas fa-map-marker-alt text-rose-500"></i>
+                            <span data-en="Manial, Cairo" data-ar="المنيل، القاهرة">المنيل، القاهرة</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-400">
+                            <i class="fas fa-clock text-amber-500"></i>
+                            <span data-en="Open 24 Hours" data-ar="مفتوح ٢٤ ساعة">مفتوح ٢٤ ساعة</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white" data-en="Quick Links" data-ar="روابط سريعة">روابط سريعة</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="footer-link" data-en="Home" data-ar="الرئيسية">الرئيسية</a></li>
+                        <li><a href="#features" class="footer-link" data-en="Features" data-ar="المميزات">المميزات</a></li>
+                        <li><a href="#pricing" class="footer-link" data-en="Pricing" data-ar="الأسعار">الأسعار</a></li>
+                        <li><a href="#location" class="footer-link" data-en="Location" data-ar="الموقع">الموقع</a></li>
+                        <li><a href="#reviews" class="footer-link" data-en="Reviews" data-ar="التقييمات">التقييمات</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-sm">
+                    &copy; 2024 Calmology. <span data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">جميع الحقوق محفوظة.</span>
+                </p>
+                <p class="text-slate-500 text-sm flex items-center gap-2">
+                    <span data-en="Made with" data-ar="صنع بـ">صنع بـ</span>
+                    <span>🧘</span>
+                    <span>&</span>
+                    <i class="fas fa-heart text-rose-500"></i>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         ADMIN PANEL BUTTON (Floating)
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <a href="admin.html"
+        class="fixed bottom-6 right-6 w-14 h-14 bg-white text-slate-700 rounded-2xl shadow-xl flex items-center justify-center hover:scale-110 hover:shadow-2xl transition-all z-40 group"
+        title="Admin Panel" aria-label="Admin Panel">
+        <i class="fas fa-cog text-lg group-hover:rotate-90 transition-transform duration-300"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>

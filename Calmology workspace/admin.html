@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Calmology | لوحة التحكم</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0d9488',
+                        'primary-dark': '#0f766e',
+                        secondary: '#059669',
+                        accent: '#fbbf24',
+                        dark: '#0f172a'
+                    },
+                    fontFamily: {
+                        sans: ['Cairo', 'Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-slate-50 font-sans" id="adminPanel">
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         LOGIN SECTION
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <div id="loginSection"
+        class="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-slate-100 to-teal-50">
+        <div class="w-full max-w-md">
+            <!-- Login Card -->
+            <div class="glass-card p-8 rounded-3xl">
+                <!-- Header -->
+                <div class="text-center mb-8">
+                    <div
+                        class="w-20 h-20 mx-auto mb-6 rounded-3xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center text-white text-3xl font-bold shadow-lg">
+                        C
+                    </div>
+                    <h1 class="text-2xl font-bold text-slate-800 mb-2">لوحة التحكم</h1>
+                    <p class="text-slate-500">مرحباً بك! سجل الدخول للمتابعة.</p>
+                </div>
+
+                <!-- Login Form -->
+                <form id="loginForm" onsubmit="adminLogin(event)" class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">اسم المستخدم</label>
+                        <div class="relative">
+                            <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400">
+                                <i class="fas fa-user"></i>
+                            </span>
+                            <input type="text" id="loginUsername"
+                                class="w-full pr-12 pl-4 py-3 rounded-xl border border-slate-200 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 outline-none transition"
+                                placeholder="أدخل اسم المستخدم" required autocomplete="username">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">كلمة المرور</label>
+                        <div class="relative">
+                            <span class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                            <input type="password" id="loginPassword"
+                                class="w-full pr-12 pl-4 py-3 rounded-xl border border-slate-200 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 outline-none transition"
+                                placeholder="أدخل كلمة المرور" required autocomplete="current-password">
+                        </div>
+                    </div>
+                    <button type="submit"
+                        class="w-full py-4 bg-gradient-to-l from-teal-600 to-emerald-600 text-white rounded-xl font-bold shadow-lg hover:shadow-xl transition transform hover:scale-[1.02]">
+                        <i class="fas fa-sign-in-alt ml-2"></i>
+                        دخول لوحة التحكم
+                    </button>
+                </form>
+
+                <!-- Back Link -->
+                <a href="index.html"
+                    class="block text-center mt-6 text-sm text-slate-500 hover:text-teal-600 transition">
+                    <i class="fas fa-arrow-right ml-1"></i> رجوع للموقع
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         DASHBOARD SECTION
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <div id="dashboardSection" class="hidden min-h-screen flex">
+
+        <!-- ─────────────────────────────────────────────────────────────────────
+             SIDEBAR
+             ───────────────────────────────────────────────────────────────────── -->
+        <aside class="admin-sidebar hidden lg:flex flex-col">
+            <!-- Logo -->
+            <div class="p-6 border-b border-slate-100">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center text-white font-bold">
+                        C
+                    </div>
+                    <span class="font-bold text-slate-800">Calmology</span>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+                <p class="text-xs text-slate-400 uppercase tracking-wider px-4 mb-2">إدارة المحتوى</p>
+
+                <button onclick="switchTab('tab-branding')" class="tab-btn bg-teal-600 text-white">
+                    <i class="fas fa-palette w-5"></i> العلامة التجارية
+                </button>
+
+                <button onclick="switchTab('tab-contact')" class="tab-btn text-slate-600 hover:bg-slate-50">
+                    <i class="fas fa-address-book w-5"></i> معلومات التواصل
+                </button>
+
+                <button onclick="switchTab('tab-pricing')" class="tab-btn text-slate-600 hover:bg-slate-50">
+                    <i class="fas fa-tags w-5"></i> خطط الأسعار
+                </button>
+
+                <button onclick="switchTab('tab-locations')" class="tab-btn text-slate-600 hover:bg-slate-50">
+                    <i class="fas fa-map-marked-alt w-5"></i> الفروع
+                </button>
+
+                <button onclick="switchTab('tab-features')" class="tab-btn text-slate-600 hover:bg-slate-50">
+                    <i class="fas fa-star w-5"></i> المميزات
+                </button>
+
+                <button onclick="switchTab('tab-gallery')" class="tab-btn text-slate-600 hover:bg-slate-50">
+                    <i class="fas fa-images w-5"></i> معرض الصور
+                </button>
+
+                <p class="text-xs text-slate-400 uppercase tracking-wider px-4 mt-6 mb-2">الإشراف</p>
+
+                <button onclick="switchTab('tab-comments')" class="tab-btn text-slate-600 hover:bg-slate-50">
+                    <i class="fas fa-comments w-5"></i> التعليقات
+                </button>
+            </nav>
+
+            <!-- Logout -->
+            <div class="p-4 border-t border-slate-100">
+                <button id="logoutBtn"
+                    class="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-red-500 hover:bg-red-50 rounded-xl transition">
+                    <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
+                </button>
+                <a href="index.html" target="_blank"
+                    class="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-500 hover:bg-slate-50 rounded-xl transition mt-2">
+                    <i class="fas fa-external-link-alt"></i> عرض الموقع
+                </a>
+            </div>
+        </aside>
+
+        <!-- ─────────────────────────────────────────────────────────────────────
+             MAIN CONTENT AREA
+             ───────────────────────────────────────────────────────────────────── -->
+        <main class="flex-1 overflow-y-auto">
+
+            <!-- Mobile Header -->
+            <div
+                class="lg:hidden flex items-center justify-between p-4 bg-white border-b border-slate-100 sticky top-0 z-10">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center text-white font-bold">
+                        C
+                    </div>
+                    <span class="font-bold text-slate-800">Calmology</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <a href="index.html" target="_blank"
+                        class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <button onclick="document.getElementById('logoutBtn').click()"
+                        class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-500">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Tab Navigation -->
+            <div class="lg:hidden flex overflow-x-auto gap-2 p-4 bg-white border-b border-slate-100 scrollbar-hide">
+                <button onclick="switchTab('tab-branding')"
+                    class="tab-btn text-xs px-3 py-2 whitespace-nowrap bg-teal-600 text-white">العلامة</button>
+                <button onclick="switchTab('tab-contact')"
+                    class="tab-btn text-xs px-3 py-2 whitespace-nowrap text-slate-600">التواصل</button>
+                <button onclick="switchTab('tab-pricing')"
+                    class="tab-btn text-xs px-3 py-2 whitespace-nowrap text-slate-600">الأسعار</button>
+                <button onclick="switchTab('tab-locations')"
+                    class="tab-btn text-xs px-3 py-2 whitespace-nowrap text-slate-600">الفروع</button>
+                <button onclick="switchTab('tab-features')"
+                    class="tab-btn text-xs px-3 py-2 whitespace-nowrap text-slate-600">المميزات</button>
+                <button onclick="switchTab('tab-gallery')"
+                    class="tab-btn text-xs px-3 py-2 whitespace-nowrap text-slate-600">الصور</button>
+                <button onclick="switchTab('tab-comments')"
+                    class="tab-btn text-xs px-3 py-2 whitespace-nowrap text-slate-600">التعليقات</button>
+            </div>
+
+            <!-- Content Wrapper -->
+            <div class="p-4 lg:p-8">
+                <div class="max-w-5xl mx-auto">
+
+                    <!-- ═══════════════════════════════════════════════════════════
+                         TAB: BRANDING & HERO
+                         ═══════════════════════════════════════════════════════════ -->
+                    <div id="tab-branding" class="tab-content">
+                        <div class="mb-8">
+                            <h1 class="text-2xl font-bold text-slate-800">العلامة التجارية والهيرو</h1>
+                            <p class="text-slate-500">تخصيص القسم الرئيسي والهوية البصرية.</p>
+                        </div>
+
+                        <div class="grid lg:grid-cols-2 gap-6">
+                            <!-- Hero Titles -->
+                            <div class="admin-card">
+                                <div class="admin-card-header">
+                                    <h3 class="font-bold flex items-center gap-2">
+                                        <i class="fas fa-heading text-teal-600"></i> عناوين الهيرو
+                                    </h3>
+                                </div>
+                                <div class="admin-card-body space-y-4">
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="admin-label">العنوان (EN)</label>
+                                            <input type="text" id="brandHeroTitleEn" class="admin-input"
+                                                placeholder="Find Your">
+                                        </div>
+                                        <div>
+                                            <label class="admin-label">العنوان (AR)</label>
+                                            <input type="text" id="brandHeroTitleAr" class="admin-input"
+                                                placeholder="اعثر على">
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="admin-label">النص المميز (EN)</label>
+                                            <input type="text" id="brandHeroHighlightEn" class="admin-input"
+                                                placeholder="Calm Zone">
+                                        </div>
+                                        <div>
+                                            <label class="admin-label">النص المميز (AR)</label>
+                                            <input type="text" id="brandHeroHighlightAr" class="admin-input"
+                                                placeholder="منطقة هدوئك">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slogan -->
+                            <div class="admin-card">
+                                <div class="admin-card-header">
+                                    <h3 class="font-bold flex items-center gap-2">
+                                        <i class="fas fa-quote-right text-emerald-600"></i> الشعار / العنوان الفرعي
+                                    </h3>
+                                </div>
+                                <div class="admin-card-body space-y-4">
+                                    <div>
+                                        <label class="admin-label">الشعار (EN)</label>
+                                        <textarea id="brandSloganEn" rows="2" class="admin-textarea" dir="ltr"
+                                            placeholder="A peaceful workspace..."></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="admin-label">الشعار (AR)</label>
+                                        <textarea id="brandSloganAr" rows="2" class="admin-textarea"
+                                            placeholder="مساحة عمل هادئة..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hero Image -->
+                            <div class="admin-card lg:col-span-2">
+                                <div class="admin-card-header">
+                                    <h3 class="font-bold flex items-center gap-2">
+                                        <i class="fas fa-image text-amber-500"></i> صورة الهيرو
+                                    </h3>
+                                </div>
+                                <div class="admin-card-body">
+                                    <div>
+                                        <label class="admin-label">رابط صورة الهيرو</label>
+                                        <input type="text" id="brandHeroImage" class="admin-input font-mono text-sm"
+                                            dir="ltr" placeholder="https://...">
+                                        <p class="text-xs text-slate-400 mt-1">الحجم المقترح: 1200x800 بكسل أو نسبة 4:3
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══════════════════════════════════════════════════════════
+                         TAB: CONTACT INFO
+                         ═══════════════════════════════════════════════════════════ -->
+                    <div id="tab-contact" class="tab-content hidden">
+                        <div class="mb-8">
+                            <h1 class="text-2xl font-bold text-slate-800">معلومات التواصل</h1>
+                            <p class="text-slate-500">تحديث أرقام الهاتف وروابط السوشيال ميديا.</p>
+                        </div>
+
+                        <div class="grid lg:grid-cols-2 gap-6">
+                            <!-- Phone & WhatsApp -->
+                            <div class="admin-card">
+                                <div class="admin-card-header">
+                                    <h3 class="font-bold flex items-center gap-2">
+                                        <i class="fas fa-phone text-green-500"></i> الهاتف والواتساب
+                                    </h3>
+                                </div>
+                                <div class="admin-card-body space-y-4">
+                                    <div>
+                                        <label class="admin-label">رقم الهاتف للعرض</label>
+                                        <input type="text" id="contactPhone" class="admin-input" dir="ltr"
+                                            placeholder="011 10188600">
+                                        <p class="text-xs text-slate-400 mt-1">كما سيظهر على الموقع</p>
+                                    </div>
+                                    <div>
+                                        <label class="admin-label">رقم الواتساب (بدون +)</label>
+                                        <input type="text" id="contactWhatsapp" class="admin-input" dir="ltr"
+                                            placeholder="201110188600">
+                                        <p class="text-xs text-slate-400 mt-1">يستخدم لروابط الضغط للمحادثة</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Social Media -->
+                            <div class="admin-card">
+                                <div class="admin-card-header">
+                                    <h3 class="font-bold flex items-center gap-2">
+                                        <i class="fas fa-share-alt text-teal-600"></i> روابط السوشيال ميديا
+                                    </h3>
+                                </div>
+                                <div class="admin-card-body space-y-4">
+                                    <div>
+                                        <label class="admin-label">
+                                            <i class="fab fa-facebook text-blue-600 ml-1"></i> رابط فيسبوك
+                                        </label>
+                                        <input type="url" id="contactFacebook" class="admin-input font-mono text-sm"
+                                            dir="ltr" placeholder="https://facebook.com/...">
+                                    </div>
+                                    <div>
+                                        <label class="admin-label">
+                                            <i class="fab fa-instagram text-pink-500 ml-1"></i> رابط انستجرام
+                                        </label>
+                                        <input type="url" id="contactInstagram" class="admin-input font-mono text-sm"
+                                            dir="ltr" placeholder="https://instagram.com/...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══════════════════════════════════════════════════════════
+                         TAB: PRICING PLANS
+                         ═══════════════════════════════════════════════════════════ -->
+                    <div id="tab-pricing" class="tab-content hidden">
+                        <div class="flex items-center justify-between mb-8">
+                            <div>
+                                <h1 class="text-2xl font-bold text-slate-800">خطط الأسعار</h1>
+                                <p class="text-slate-500">إدارة خطط الأسعار بتخصيص كامل.</p>
+                            </div>
+                            <button onclick="State.addPlan()"
+                                class="px-4 py-2 bg-teal-600 text-white rounded-xl hover:bg-teal-700 transition font-bold text-sm">
+                                <i class="fas fa-plus ml-2"></i> إضافة خطة
+                            </button>
+                        </div>
+
+                        <div id="admin-pricing-list" class="space-y-4">
+                            <!-- Filled by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- ═══════════════════════════════════════════════════════════
+                         TAB: LOCATIONS
+                         ═══════════════════════════════════════════════════════════ -->
+                    <div id="tab-locations" class="tab-content hidden">
+                        <div class="flex items-center justify-between mb-8">
+                            <div>
+                                <h1 class="text-2xl font-bold text-slate-800">الفروع والمواقع</h1>
+                                <p class="text-slate-500">إضافة وإدارة فروع مساحة العمل.</p>
+                            </div>
+                            <button onclick="State.addLocation()"
+                                class="px-4 py-2 bg-teal-600 text-white rounded-xl hover:bg-teal-700 transition font-bold text-sm">
+                                <i class="fas fa-plus ml-2"></i> إضافة فرع
+                            </button>
+                        </div>
+
+                        <div id="admin-locations-list" class="space-y-4">
+                            <!-- Filled by JavaScript -->
+                        </div>
+
+                        <!-- Help Box -->
+                        <div class="mt-8 p-4 bg-blue-50 rounded-xl border border-blue-100">
+                            <h4 class="font-bold text-blue-800 mb-2 flex items-center gap-2">
+                                <i class="fas fa-info-circle"></i> كيفية الحصول على رابط خريطة جوجل
+                            </h4>
+                            <ol class="text-sm text-blue-700 space-y-1 list-decimal list-inside">
+                                <li>اذهب إلى <a href="https://www.google.com/maps" target="_blank"
+                                        class="underline">خرائط جوجل</a></li>
+                                <li>ابحث عن موقعك</li>
+                                <li>اضغط "مشاركة" ← "تضمين خريطة"</li>
+                                <li>انسخ الرابط من داخل <code class="bg-blue-100 px-1 rounded" dir="ltr">src=""</code>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- ═══════════════════════════════════════════════════════════
+                         TAB: FEATURES
+                         ═══════════════════════════════════════════════════════════ -->
+                    <div id="tab-features" class="tab-content hidden">
+                        <div class="flex items-center justify-between mb-8">
+                            <div>
+                                <h1 class="text-2xl font-bold text-slate-800">المميزات والخدمات</h1>
+                                <p class="text-slate-500">أبرز ما يميز مساحتك.</p>
+                            </div>
+                            <button onclick="State.addFeature()"
+                                class="px-4 py-2 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition font-bold text-sm">
+                                <i class="fas fa-plus ml-2"></i> إضافة ميزة
+                            </button>
+                        </div>
+
+                        <div class="admin-card">
+                            <div class="admin-card-header">
+                                <h3 class="font-bold">كل المميزات</h3>
+                            </div>
+                            <div class="admin-card-body">
+                                <div id="admin-features-list" class="space-y-2">
+                                    <!-- Filled by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Icon Reference -->
+                        <div class="mt-8 p-4 bg-slate-50 rounded-xl border border-slate-200">
+                            <h4 class="font-bold text-slate-700 mb-3 flex items-center gap-2">
+                                <i class="fas fa-icons"></i> أكواد الأيقونات الشائعة
+                            </h4>
+                            <div class="flex flex-wrap gap-3 text-sm" dir="ltr">
+                                <code class="px-2 py-1 bg-white rounded border">fas fa-wifi</code>
+                                <code class="px-2 py-1 bg-white rounded border">fas fa-plug</code>
+                                <code class="px-2 py-1 bg-white rounded border">fas fa-snowflake</code>
+                                <code class="px-2 py-1 bg-white rounded border">fas fa-clock</code>
+                                <code class="px-2 py-1 bg-white rounded border">fas fa-smoking</code>
+                                <code class="px-2 py-1 bg-white rounded border">fas fa-smoking-ban</code>
+                                <code class="px-2 py-1 bg-white rounded border">fas fa-mug-hot</code>
+                                <code class="px-2 py-1 bg-white rounded border">fas fa-broom</code>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-3">
+                                تصفح كل الأيقونات في <a href="https://fontawesome.com/icons" target="_blank"
+                                    class="underline text-teal-600">fontawesome.com/icons</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ═══════════════════════════════════════════════════════════
+                         TAB: GALLERY
+                         ═══════════════════════════════════════════════════════════ -->
+                    <div id="tab-gallery" class="tab-content hidden">
+                        <div class="mb-8">
+                            <h1 class="text-2xl font-bold text-slate-800">معرض الصور</h1>
+                            <p class="text-slate-500">إدارة الصور المعروضة في قسم المعرض.</p>
+                        </div>
+
+                        <div class="admin-card">
+                            <div class="admin-card-header">
+                                <h3 class="font-bold flex items-center gap-2">
+                                    <i class="fas fa-images text-teal-600"></i> صور المعرض
+                                </h3>
+                            </div>
+                            <div class="admin-card-body">
+                                <div id="admin-gallery-grid" class="flex flex-wrap gap-4">
+                                    <!-- Filled by JavaScript -->
+                                </div>
+                                <p class="text-xs text-slate-400 mt-4">
+                                    <i class="fas fa-lightbulb text-amber-500 ml-1"></i>
+                                    نصيحة: استخدم صور عالية الجودة (يُفضل 800x600 بكسل كحد أدنى). اضغط على أيقونة الحذف
+                                    لإزالة صورة.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══════════════════════════════════════════════════════════
+                         TAB: COMMENTS
+                         ═══════════════════════════════════════════════════════════ -->
+                    <div id="tab-comments" class="tab-content hidden">
+                        <div class="mb-8">
+                            <h1 class="text-2xl font-bold text-slate-800">تعليقات المستخدمين</h1>
+                            <p class="text-slate-500">عرض وإدارة تقييمات وتعليقات المستخدمين.</p>
+                        </div>
+
+                        <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                            <table class="w-full">
+                                <thead class="bg-slate-50 border-b border-slate-100">
+                                    <tr class="text-xs text-slate-500 uppercase">
+                                        <th class="text-right p-4 font-semibold">المستخدم</th>
+                                        <th class="text-right p-4 font-semibold">التعليق</th>
+                                        <th class="text-right p-4 font-semibold">التاريخ</th>
+                                        <th class="text-right p-4 font-semibold">إجراء</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-comments-list" class="divide-y divide-slate-100">
+                                    <!-- Filled by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- ═══════════════════════════════════════════════════════════
+                         SAVE BUTTON (Sticky at bottom)
+                         ═══════════════════════════════════════════════════════════ -->
+                    <div class="sticky bottom-4 mt-8 z-20">
+                        <button id="saveAllBtn" class="admin-save-btn">
+                            <i class="fas fa-save"></i>
+                            حفظ كل التغييرات
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
