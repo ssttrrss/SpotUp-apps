@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #3B82F6;
+  --primary-hover: #2563EB;
+  --secondary: #10B981;
+  --accent: #F59E0B;
+  --danger: #EF4444;
+  --background: #0F172A;
+  --surface: #1E293B;
+  --surface-hover: #334155;
+  --border: #334155;
+  --text: #F8FAFC;
+  --text-secondary: #94A3B8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  direction: rtl;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Form styles */
+input, select, textarea {
+  font-family: 'Cairo', sans-serif;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Card styles */
+.card {
+  @apply bg-[var(--surface)] rounded-xl border border-[var(--border)] p-6;
+}
+
+.card-hover {
+  @apply hover:bg-[var(--surface-hover)] transition-colors duration-200;
+}
+
+/* Button base */
+.btn {
+  @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2;
+}
+
+.btn-primary {
+  @apply bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white;
+}
+
+.btn-secondary {
+  @apply bg-[var(--secondary)] hover:opacity-90 text-white;
+}
+
+.btn-danger {
+  @apply bg-[var(--danger)] hover:opacity-90 text-white;
+}
+
+.btn-ghost {
+  @apply bg-transparent hover:bg-[var(--surface-hover)] text-[var(--text-secondary)];
+}
+
+/* Input styles */
+.input {
+  @apply w-full px-4 py-3 rounded-lg bg-[var(--background)] border border-[var(--border)] text-[var(--text)] placeholder-[var(--text-secondary)] focus:outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] transition-colors;
+}
+
+/* Badge styles */
+.badge {
+  @apply px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.badge-success {
+  @apply bg-[var(--secondary)]/20 text-[var(--secondary)];
+}
+
+.badge-warning {
+  @apply bg-[var(--accent)]/20 text-[var(--accent)];
+}
+
+.badge-danger {
+  @apply bg-[var(--danger)]/20 text-[var(--danger)];
+}
+
+.badge-primary {
+  @apply bg-[var(--primary)]/20 text-[var(--primary)];
+}
+
+/* Table styles */
+.table {
+  @apply w-full;
+}
+
+.table th {
+  @apply text-right text-[var(--text-secondary)] font-medium py-3 px-4 border-b border-[var(--border)];
+}
+
+.table td {
+  @apply py-4 px-4 border-b border-[var(--border)];
+}
+
+.table tr:hover td {
+  @apply bg-[var(--surface-hover)];
+}
+
+/* Stat card */
+.stat-card {
+  @apply card flex flex-col gap-2;
+}
+
+.stat-value {
+  @apply text-3xl font-bold;
+}
+
+.stat-label {
+  @apply text-[var(--text-secondary)] text-sm;
+}
+
+/* Modal */
+.modal-overlay {
+  @apply fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50;
+}
+
+.modal-content {
+  @apply bg-[var(--surface)] rounded-2xl p-6 max-w-md w-full mx-4 animate-fade-in;
+}

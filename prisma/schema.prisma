@@ -1,0 +1,94 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+// المستخدمين (الأدمن والموظفين)
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("employee") // admin | employee
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  bookings  Booking[]
+}
+
+// الغرف
+model Room {
+  id         Int      @id @default(autoincrement())
+  name       String
+  hourlyRate Float
+  status     String   @default("available") // available | occupied
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  bookings   Booking[]
+}
+
+// العملاء
+model Customer {
+  id        Int      @id @default(autoincrement())
+  name      String
+  phone     String
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  bookings  Booking[]
+}
+
+// المشروبات
+model Drink {
+  id          Int          @id @default(autoincrement())
+  name        String
+  price       Float
+  isAvailable Boolean      @default(true)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  orders      DrinkOrder[]
+}
+
+// الحجوزات
+model Booking {
+  id          Int          @id @default(autoincrement())
+  type        String       // fixed | open
+  startTime   DateTime
+  endTime     DateTime?
+  roomCost    Float        @default(0)
+  drinksCost  Float        @default(0)
+  totalCost   Float        @default(0)
+  status      String       @default("active") // active | completed
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  
+  roomId      Int
+  room        Room         @relation(fields: [roomId], references: [id])
+  
+  customerId  Int
+  customer    Customer     @relation(fields: [customerId], references: [id])
+  
+  userId      Int
+  user        User         @relation(fields: [userId], references: [id])
+  
+  drinkOrders DrinkOrder[]
+}
+
+// طلبات المشروبات
+model DrinkOrder {
+  id         Int      @id @default(autoincrement())
+  quantity   Int
+  totalPrice Float
+  createdAt  DateTime @default(now())
+  
+  bookingId  Int
+  booking    Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  
+  drinkId    Int
+  drink      Drink    @relation(fields: [drinkId], references: [id])
+}
