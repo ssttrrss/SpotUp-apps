@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Cozy Hive | Admin Dashboard</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0198b0',
+                        'primary-dark': '#017a8f',
+                        secondary: '#fd8f4e',
+                        'secondary-dark': '#e67a3a',
+                        accent: '#ffbe0b',
+                        dark: '#1a1a2e'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="https://tabexseriesmedia.s3.eu-north-1.amazonaws.com/storeinfo/6935c04816952/insticon1765796111.png">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-50 font-sans" id="adminPanel">
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         LOGIN SECTION
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <div id="loginSection"
+        class="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-gray-100 to-gray-200">
+        <div class="w-full max-w-md">
+            <!-- Login Card -->
+            <div class="glass-card p-8 rounded-3xl">
+                <!-- Header -->
+                <div class="text-center mb-8">
+                    <img src="https://tabexseriesmedia.s3.eu-north-1.amazonaws.com/storeinfo/6935c04816952/instlogo1765796108.png"
+                        class="h-16 mx-auto mb-6" alt="Cozy Hive Logo">
+                    <h1 class="text-2xl font-bold text-gray-800 mb-2">Admin Dashboard</h1>
+                    <p class="text-gray-500">Welcome back! Please login to continue.</p>
+                </div>
+
+                <!-- Login Form -->
+                <form id="loginForm" onsubmit="adminLogin(event)" class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Username</label>
+                        <div class="relative">
+                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                                <i class="fas fa-user"></i>
+                            </span>
+                            <input type="text" id="loginUsername"
+                                class="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition"
+                                placeholder="Enter username" required autocomplete="username">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                        <div class="relative">
+                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                            <input type="password" id="loginPassword"
+                                class="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition"
+                                placeholder="Enter password" required autocomplete="current-password">
+                        </div>
+                    </div>
+                    <button type="submit"
+                        class="w-full py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-xl font-bold shadow-lg hover:shadow-xl transition transform hover:scale-[1.02]">
+                        <i class="fas fa-sign-in-alt mr-2"></i>
+                        Access Dashboard
+                    </button>
+                </form>
+
+                <!-- Back Link -->
+                <a href="index.html" class="block text-center mt-6 text-sm text-gray-500 hover:text-primary transition">
+                    <i class="fas fa-arrow-left mr-1"></i> Back to Website
+                </a>
+            </div>
+
+            <!-- Security Notice -->
+            <p class="text-center text-xs text-gray-400 mt-6">
+                <i class="fas fa-shield-alt mr-1"></i>
+                Secure admin access. All changes are saved locally.
+            </p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         DASHBOARD SECTION
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <div id="dashboardSection" class="hidden min-h-screen flex">
+
+        <!-- ─────────────────────────────────────────────────────────────────────
+             SIDEBAR
+             ───────────────────────────────────────────────────────────────────── -->
+        <aside class="admin-sidebar hidden lg:flex flex-col">
+            <!-- Logo -->
+            <div class="p-6 border-b border-gray-100">
+                <img src="https://tabexseriesmedia.s3.eu-north-1.amazonaws.com/storeinfo/6935c04816952/instlogo1765796108.png"
+                    class="h-10" alt="Cozy Hive">
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+                <p class="text-xs text-gray-400 uppercase tracking-wider px-4 mb-2">Content Management</p>
+
+                <button onclick="switchTab('tab-branding')" class="tab-btn bg-primary text-white">
+                    <i class="fas fa-palette w-5"></i> Branding & Hero
+                </button>
+
+                <button onclick="switchTab('tab-contact')" class="tab-btn text-gray-600 hover:bg-gray-50">
+                    <i class="fas fa-address-book w-5"></i> Contact Info
+                </button>
+
+                <button onclick="switchTab('tab-pricing')" class="tab-btn text-gray-600 hover:bg-gray-50">
+                    <i class="fas fa-tags w-5"></i> Pricing Plans
+                </button>
+
+                <button onclick="switchTab('tab-locations')" class="tab-btn text-gray-600 hover:bg-gray-50">
+                    <i class="fas fa-map-marked-alt w-5"></i> Locations
+                </button>
+
+                <button onclick="switchTab('tab-features')" class="tab-btn text-gray-600 hover:bg-gray-50">
+                    <i class="fas fa-star w-5"></i> Features
+                </button>
+
+                <button onclick="switchTab('tab-gallery')" class="tab-btn text-gray-600 hover:bg-gray-50">
+                    <i class="fas fa-images w-5"></i> Photo Gallery
+                </button>
+
+                <p class="text-xs text-gray-400 uppercase tracking-wider px-4 mt-6 mb-2">Moderation</p>
+
+                <button onclick="switchTab('tab-comments')" class="tab-btn text-gray-600 hover:bg-gray-50">
+                    <i class="fas fa-comments w-5"></i> User Comments
+                </button>
+            </nav>
+
+            <!-- Logout -->
+            <div class="p-4 border-t border-gray-100">
+                <button id="logoutBtn"
+                    class="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-red-500 hover:bg-red-50 rounded-xl transition">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+                <a href="index.html" target="_blank"
+                    class="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-500 hover:bg-gray-50 rounded-xl transition mt-2">
+                    <i class="fas fa-external-link-alt"></i> View Website
+                </a>
+            </div>
+        </aside>
+
+        <!-- ─────────────────────────────────────────────────────────────────────
+             MAIN CONTENT AREA
+             ───────────────────────────────────────────────────────────────────── -->
+        <main class="flex-1 overflow-y-auto">
+
+            <!-- Mobile Header -->
+            <div
+                class="lg:hidden flex items-center justify-between p-4 bg-white border-b border-gray-100 sticky top-0 z-10">
+                <img src="https://tabexseriesmedia.s3.eu-north-1.amazonaws.com/storeinfo/6935c04816952/instlogo1765796108.png"
+                    class="h-8" alt="Cozy Hive">
+                <div class="flex items-center gap-2">
+                    <a href="index.html" target="_blank"
+                        class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600">
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <button onclick="document.getElementById('logoutBtn').click()"
+                        class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-500">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Tab Navigation -->
+            <div class="lg:hidden flex overflow-x-auto gap-2 p-4 bg-white border-b border-gray-100 scrollbar-hide">
+                <button onclick="switchTab('tab-branding')"
+                    class="tab-btn text-xs px-3 py-2 whitespace-nowrap bg-primary text-white">Branding</button>
+                <button onclick="switchTab('tab-contact')"
+                    class="tab-btn text-xs px-3 py-2 whitespace-nowrap text-gray-600">Contact</button>
+                <button onclick="switchTab('tab-pricing')"
+                    class="tab-btn text-xs px-3 py-2 whitespace-nowrap text-gray-600">Pricing</button>
+                <button onclick="switchTab('tab-locations')"
+                    class="tab-btn text-xs px-3 py-2 whitespace-nowrap text-gray-600">Locations</button>
+                <button onclick="switchTab('tab-features')"
+                    class="tab-btn text-xs px-3 py-2 whitespace-nowrap text-gray-600">Features</button>
+                <button onclick="switchTab('tab-gallery')"
+                    class="tab-btn text-xs px-3 py-2 whitespace-nowrap text-gray-600">Gallery</button>
+                <button onclick="switchTab('tab-comments')"
+                    class="tab-btn text-xs px-3 py-2 whitespace-nowrap text-gray-600">Comments</button>
+            </div>
+
+            <!-- Content Wrapper -->
+            <div class="p-4 lg:p-8">
+                <div class="max-w-5xl mx-auto">
+
+                    <!-- ═══════════════════════════════════════════════════════════
+                         TAB: BRANDING & HERO
+                         ═══════════════════════════════════════════════════════════ -->
+                    <div id="tab-branding" class="tab-content">
+                        <div class="mb-8">
+                            <h1 class="text-2xl font-bold text-gray-800">Branding & Hero Section</h1>
+                            <p class="text-gray-500">Customize the main hero section and brand identity.</p>
+                        </div>
+
+                        <div class="grid lg:grid-cols-2 gap-6">
+                            <!-- Hero Titles -->
+                            <div class="admin-card">
+                                <div class="admin-card-header">
+                                    <h3 class="font-bold flex items-center gap-2">
+                                        <i class="fas fa-heading text-primary"></i> Hero Titles
+                                    </h3>
+                                </div>
+                                <div class="admin-card-body space-y-4">
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="admin-label">Title Line 1 (EN)</label>
+                                            <input type="text" id="brandHeroTitleEn" class="admin-input"
+                                                placeholder="Your Space to">
+                                        </div>
+                                        <div>
+                                            <label class="admin-label">Title Line 1 (AR)</label>
+                                            <input type="text" id="brandHeroTitleAr" class="admin-input text-right"
+                                                dir="rtl" placeholder="مساحتك الـ">
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="admin-label">Highlight Text (EN)</label>
+                                            <input type="text" id="brandHeroHighlightEn" class="admin-input"
+                                                placeholder="Create & Grow">
+                                        </div>
+                                        <div>
+                                            <label class="admin-label">Highlight Text (AR)</label>
+                                            <input type="text" id="brandHeroHighlightAr" class="admin-input text-right"
+                                                dir="rtl" placeholder="تبدع وتنمو">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slogan -->
+                            <div class="admin-card">
+                                <div class="admin-card-header">
+                                    <h3 class="font-bold flex items-center gap-2">
+                                        <i class="fas fa-quote-left text-secondary"></i> Slogan / Subtitle
+                                    </h3>
+                                </div>
+                                <div class="admin-card-body space-y-4">
+                                    <div>
+                                        <label class="admin-label">Slogan (EN)</label>
+                                        <textarea id="brandSloganEn" rows="2" class="admin-textarea"
+                                            placeholder="Experience the perfect balance..."></textarea>
+                                    </div>
+                                    <div>
+                                        <label class="admin-label">Slogan (AR)</label>
+                                        <textarea id="brandSloganAr" rows="2" class="admin-textarea text-right"
+                                            dir="rtl" placeholder="جرب التوازن المثالي..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hero Image -->
+                            <div class="admin-card lg:col-span-2">
+                                <div class="admin-card-header">
+                                    <h3 class="font-bold flex items-center gap-2">
+                                        <i class="fas fa-image text-accent"></i> Hero Image & Badge
+                                    </h3>
+                                </div>
+                                <div class="admin-card-body">
+                                    <div class="grid lg:grid-cols-3 gap-4">
+                                        <div class="lg:col-span-2">
+                                            <label class="admin-label">Hero Image URL</label>
+                                            <input type="text" id="brandHeroImage" class="admin-input font-mono text-sm"
+                                                placeholder="https://...">
+                                            <p class="text-xs text-gray-400 mt-1">Recommended size: 800x600px or 4:3
+                                                aspect ratio</p>
+                                        </div>
+                                        <div>
+                                            <label class="admin-label">Since Year</label>
+                                            <input type="text" id="brandSince" class="admin-input" placeholder="2021">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══════════════════════════════════════════════════════════
+                         TAB: CONTACT INFO
+                         ═══════════════════════════════════════════════════════════ -->
+                    <div id="tab-contact" class="tab-content hidden">
+                        <div class="mb-8">
+                            <h1 class="text-2xl font-bold text-gray-800">Contact Information</h1>
+                            <p class="text-gray-500">Update phone numbers, social media links, and contact details.</p>
+                        </div>
+
+                        <div class="grid lg:grid-cols-2 gap-6">
+                            <!-- Phone & WhatsApp -->
+                            <div class="admin-card">
+                                <div class="admin-card-header">
+                                    <h3 class="font-bold flex items-center gap-2">
+                                        <i class="fas fa-phone text-green-500"></i> Phone & WhatsApp
+                                    </h3>
+                                </div>
+                                <div class="admin-card-body space-y-4">
+                                    <div>
+                                        <label class="admin-label">Display Phone Number</label>
+                                        <input type="text" id="contactPhone" class="admin-input"
+                                            placeholder="+20 108 036 4642">
+                                        <p class="text-xs text-gray-400 mt-1">This is how it appears on the website</p>
+                                    </div>
+                                    <div>
+                                        <label class="admin-label">WhatsApp Number (without +)</label>
+                                        <input type="text" id="contactWhatsapp" class="admin-input"
+                                            placeholder="201080364642">
+                                        <p class="text-xs text-gray-400 mt-1">Used for WhatsApp click-to-chat links</p>
+                                    </div>
+                                    <div>
+                                        <label class="admin-label">Email Address</label>
+                                        <input type="email" id="contactEmail" class="admin-input"
+                                            placeholder="hello@cozyhive.com">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Social Media -->
+                            <div class="admin-card">
+                                <div class="admin-card-header">
+                                    <h3 class="font-bold flex items-center gap-2">
+                                        <i class="fas fa-share-alt text-primary"></i> Social Media Links
+                                    </h3>
+                                </div>
+                                <div class="admin-card-body space-y-4">
+                                    <div>
+                                        <label class="admin-label">
+                                            <i class="fab fa-facebook text-blue-600 mr-1"></i> Facebook URL
+                                        </label>
+                                        <input type="url" id="contactFacebook" class="admin-input font-mono text-sm"
+                                            placeholder="https://facebook.com/...">
+                                    </div>
+                                    <div>
+                                        <label class="admin-label">
+                                            <i class="fab fa-instagram text-pink-500 mr-1"></i> Instagram URL
+                                        </label>
+                                        <input type="url" id="contactInstagram" class="admin-input font-mono text-sm"
+                                            placeholder="https://instagram.com/...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══════════════════════════════════════════════════════════
+                         TAB: PRICING PLANS
+                         ═══════════════════════════════════════════════════════════ -->
+                    <div id="tab-pricing" class="tab-content hidden">
+                        <div class="flex items-center justify-between mb-8">
+                            <div>
+                                <h1 class="text-2xl font-bold text-gray-800">Pricing Plans</h1>
+                                <p class="text-gray-500">Manage your pricing plans with full customization.</p>
+                            </div>
+                            <button onclick="State.addPlan()"
+                                class="px-4 py-2 bg-primary text-white rounded-xl hover:bg-primary-dark transition font-bold text-sm">
+                                <i class="fas fa-plus mr-2"></i> Add Plan
+                            </button>
+                        </div>
+
+                        <div id="admin-pricing-list" class="space-y-4">
+                            <!-- Filled by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- ═══════════════════════════════════════════════════════════
+                         TAB: LOCATIONS
+                         ═══════════════════════════════════════════════════════════ -->
+                    <div id="tab-locations" class="tab-content hidden">
+                        <div class="flex items-center justify-between mb-8">
+                            <div>
+                                <h1 class="text-2xl font-bold text-gray-800">Branch Locations</h1>
+                                <p class="text-gray-500">Add and manage your coworking space branches.</p>
+                            </div>
+                            <button onclick="State.addLocation()"
+                                class="px-4 py-2 bg-primary text-white rounded-xl hover:bg-primary-dark transition font-bold text-sm">
+                                <i class="fas fa-plus mr-2"></i> Add Branch
+                            </button>
+                        </div>
+
+                        <div id="admin-locations-list" class="space-y-4">
+                            <!-- Filled by JavaScript -->
+                        </div>
+
+                        <!-- Help Box -->
+                        <div class="mt-8 p-4 bg-blue-50 rounded-xl border border-blue-100">
+                            <h4 class="font-bold text-blue-800 mb-2 flex items-center gap-2">
+                                <i class="fas fa-info-circle"></i> How to get Google Maps Embed URL
+                            </h4>
+                            <ol class="text-sm text-blue-700 space-y-1 list-decimal list-inside">
+                                <li>Go to <a href="https://www.google.com/maps" target="_blank" class="underline">Google
+                                        Maps</a></li>
+                                <li>Search for your location</li>
+                                <li>Click "Share" → "Embed a map"</li>
+                                <li>Copy the URL from inside the <code class="bg-blue-100 px-1 rounded">src=""</code>
+                                    attribute</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- ═══════════════════════════════════════════════════════════
+                         TAB: FEATURES
+                         ═══════════════════════════════════════════════════════════ -->
+                    <div id="tab-features" class="tab-content hidden">
+                        <div class="flex items-center justify-between mb-8">
+                            <div>
+                                <h1 class="text-2xl font-bold text-gray-800">Features & Amenities</h1>
+                                <p class="text-gray-500">Highlight what makes your space special.</p>
+                            </div>
+                            <button onclick="State.addFeature()"
+                                class="px-4 py-2 bg-secondary text-white rounded-xl hover:bg-secondary-dark transition font-bold text-sm">
+                                <i class="fas fa-plus mr-2"></i> Add Feature
+                            </button>
+                        </div>
+
+                        <div class="admin-card">
+                            <div class="admin-card-header">
+                                <h3 class="font-bold">All Features</h3>
+                            </div>
+                            <div class="admin-card-body">
+                                <div id="admin-features-list" class="space-y-2">
+                                    <!-- Filled by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Icon Reference -->
+                        <div class="mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200">
+                            <h4 class="font-bold text-gray-700 mb-3 flex items-center gap-2">
+                                <i class="fas fa-icons"></i> Popular Icon Classes
+                            </h4>
+                            <div class="flex flex-wrap gap-3 text-sm">
+                                <code class="px-2 py-1 bg-white rounded border">fas fa-wifi</code>
+                                <code class="px-2 py-1 bg-white rounded border">fas fa-coffee</code>
+                                <code class="px-2 py-1 bg-white rounded border">fas fa-print</code>
+                                <code class="px-2 py-1 bg-white rounded border">fas fa-snowflake</code>
+                                <code class="px-2 py-1 bg-white rounded border">fas fa-door-open</code>
+                                <code class="px-2 py-1 bg-white rounded border">fas fa-user-lock</code>
+                                <code class="px-2 py-1 bg-white rounded border">fas fa-bolt</code>
+                                <code class="px-2 py-1 bg-white rounded border">fas fa-parking</code>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-3">
+                                Browse all icons at <a href="https://fontawesome.com/icons" target="_blank"
+                                    class="underline text-primary">fontawesome.com/icons</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ═══════════════════════════════════════════════════════════
+                         TAB: GALLERY
+                         ═══════════════════════════════════════════════════════════ -->
+                    <div id="tab-gallery" class="tab-content hidden">
+                        <div class="mb-8">
+                            <h1 class="text-2xl font-bold text-gray-800">Photo Gallery</h1>
+                            <p class="text-gray-500">Manage the images shown in your gallery section.</p>
+                        </div>
+
+                        <div class="admin-card">
+                            <div class="admin-card-header">
+                                <h3 class="font-bold flex items-center gap-2">
+                                    <i class="fas fa-images text-primary"></i> Gallery Images
+                                </h3>
+                            </div>
+                            <div class="admin-card-body">
+                                <div id="admin-gallery-grid" class="flex flex-wrap gap-4">
+                                    <!-- Filled by JavaScript -->
+                                </div>
+                                <p class="text-xs text-gray-400 mt-4">
+                                    <i class="fas fa-lightbulb text-accent mr-1"></i>
+                                    Tip: Use high-quality images (recommended 800x600px minimum). Click the trash icon
+                                    to remove an image.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══════════════════════════════════════════════════════════
+                         TAB: COMMENTS
+                         ═══════════════════════════════════════════════════════════ -->
+                    <div id="tab-comments" class="tab-content hidden">
+                        <div class="mb-8">
+                            <h1 class="text-2xl font-bold text-gray-800">User Comments</h1>
+                            <p class="text-gray-500">View and moderate user reviews and feedback.</p>
+                        </div>
+
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                            <table class="w-full">
+                                <thead class="bg-gray-50 border-b border-gray-100">
+                                    <tr class="text-xs text-gray-500 uppercase">
+                                        <th class="text-left p-4 font-semibold">User</th>
+                                        <th class="text-left p-4 font-semibold">Comment</th>
+                                        <th class="text-left p-4 font-semibold">Date</th>
+                                        <th class="text-left p-4 font-semibold">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-comments-list" class="divide-y divide-gray-100">
+                                    <!-- Filled by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- ═══════════════════════════════════════════════════════════
+                         SAVE BUTTON (Sticky at bottom)
+                         ═══════════════════════════════════════════════════════════ -->
+                    <div class="sticky bottom-4 mt-8 z-20">
+                        <button id="saveAllBtn" class="admin-save-btn">
+                            <i class="fas fa-save"></i>
+                            Save All Changes
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>

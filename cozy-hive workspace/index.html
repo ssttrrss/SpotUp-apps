@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Cozy Hive - Premium Coworking Space in Cairo, Egypt. Experience the perfect balance of comfort and productivity. Flexible plans for freelancers, startups & remote workers.">
+    <meta name="keywords"
+        content="coworking space, Cairo, Zamalek, shared office, hot desk, meeting rooms, freelancers, startups, Egypt">
+    <meta name="author" content="Cozy Hive">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Cozy Hive | Premium Coworking Space in Cairo">
+    <meta property="og:description"
+        content="Your creative space to work, connect, and grow. Join Cairo's coziest coworking community.">
+    <meta property="og:image"
+        content="https://tabexseriesmedia.s3.eu-north-1.amazonaws.com/products/6935c04816952/693ffbcb9ddb5generalimage.png">
+    <meta property="og:type" content="website">
+
+    <title>Cozy Hive | Premium Coworking Space in Cairo</title>
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="https://tabexseriesmedia.s3.eu-north-1.amazonaws.com/storeinfo/6935c04816952/insticon1765796111.png">
+    <link rel="apple-touch-icon"
+        href="https://tabexseriesmedia.s3.eu-north-1.amazonaws.com/storeinfo/6935c04816952/instlogo1765796108.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0198b0',
+                        'primary-dark': '#017a8f',
+                        secondary: '#fd8f4e',
+                        'secondary-dark': '#e67a3a',
+                        accent: '#ffbe0b',
+                        dark: '#1a1a2e'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        arabic: ['Cairo', 'Inter', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glow': '0 0 30px rgba(1, 152, 176, 0.3)',
+                        'glow-lg': '0 0 60px rgba(1, 152, 176, 0.4)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-[#fafafa] text-dark antialiased">
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         NAVIGATION BAR
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
+        <div class="container-custom flex justify-between items-center nav-container">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <img src="https://tabexseriesmedia.s3.eu-north-1.amazonaws.com/storeinfo/6935c04816952/instlogo1765796108.png"
+                    alt="Cozy Hive Logo" class="h-10 transition-transform group-hover:scale-105">
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-8 glass px-8 py-3 rounded-full">
+                <a href="#home" class="nav-link text-sm font-semibold" data-en="Home" data-ar="الرئيسية">Home</a>
+                <a href="#about" class="nav-link text-sm font-semibold" data-en="About" data-ar="عنا">About</a>
+                <a href="#pricing" class="nav-link text-sm font-semibold" data-en="Pricing"
+                    data-ar="الأسعار">Pricing</a>
+                <a href="#locations" class="nav-link text-sm font-semibold" data-en="Locations"
+                    data-ar="الفروع">Locations</a>
+                <a href="#contact" class="nav-link text-sm font-semibold" data-en="Contact" data-ar="تواصل">Contact</a>
+            </div>
+
+            <!-- Right Side Actions -->
+            <div class="flex items-center gap-3">
+                <!-- Language Toggle -->
+                <button id="langToggle"
+                    class="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center hover:bg-gray-50 transition font-bold text-xs"
+                    aria-label="Toggle Language">
+                    AR
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn"
+                    class="md:hidden w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center"
+                    aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden flex-col glass mt-4 mx-4 rounded-2xl p-6 space-y-4">
+            <a href="#home" class="block text-gray-700 font-semibold py-2" data-en="Home" data-ar="الرئيسية">Home</a>
+            <a href="#about" class="block text-gray-700 font-semibold py-2" data-en="About" data-ar="عنا">About</a>
+            <a href="#pricing" class="block text-gray-700 font-semibold py-2" data-en="Pricing"
+                data-ar="الأسعار">Pricing</a>
+            <a href="#locations" class="block text-gray-700 font-semibold py-2" data-en="Locations"
+                data-ar="الفروع">Locations</a>
+            <a href="#contact" class="block text-gray-700 font-semibold py-2" data-en="Contact"
+                data-ar="تواصل">Contact</a>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         HERO SECTION
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <header id="home" class="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden">
+        <!-- Background Blobs -->
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+
+        <div class="container-custom relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Left Content -->
+                <div class="space-y-8 text-center lg:text-left">
+                    <!-- Badge -->
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-orange-100 to-amber-100 text-secondary">
+                        <i class="fas fa-sparkles"></i>
+                        <span id="sinceBadge" class="text-sm font-bold tracking-wide uppercase">Since 2021</span>
+                    </div>
+
+                    <!-- Main Heading -->
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight">
+                        <span id="heroTitle" class="block">Your Space to</span>
+                        <span id="heroHighlight" class="text-gradient">Create & Grow</span>
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p id="heroSlogan"
+                        class="text-lg md:text-xl text-gray-500 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                        Experience the perfect balance of comfort and productivity in the heart of Cairo.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="https://wa.me/201080364642" data-link="whatsapp" target="_blank" class="btn-primary">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                            <span data-en="Book Now" data-ar="احجز الآن">Book Now</span>
+                        </a>
+                        <a href="#about" class="btn-secondary">
+                            <span data-en="Learn More" data-ar="اعرف المزيد">Learn More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Trust Indicators -->
+                    <div class="flex items-center gap-6 justify-center lg:justify-start pt-4">
+                        <div class="flex items-center gap-2 text-gray-500">
+                            <i class="fas fa-users text-primary"></i>
+                            <span class="text-sm font-medium" data-en="500+ Members" data-ar="+٥٠٠ عضو">500+
+                                Members</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-500">
+                            <i class="fas fa-star text-accent"></i>
+                            <span class="text-sm font-medium" data-en="4.9 Rating" data-ar="تقييم ٤.٩">4.9 Rating</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content - Hero Image -->
+                <div class="relative hero-image-wrapper">
+                    <!-- Glow Effect -->
+                    <div class="hero-image-glow"></div>
+
+                    <!-- Main Image -->
+                    <img id="heroImg"
+                        src="https://tabexseriesmedia.s3.eu-north-1.amazonaws.com/products/6935c04816952/693ffbcb9ddb5generalimage.png"
+                        alt="Cozy Hive Workspace" class="hero-image w-full aspect-[4/3] object-cover">
+
+                    <!-- Floating Card - Internet Speed -->
+                    <div class="absolute -bottom-6 -left-6 glass-card p-5 rounded-2xl floating-card hidden lg:block"
+                        style="animation-delay: 0.5s;">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-wifi text-green-600 text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-wide" data-en="Internet Speed"
+                                    data-ar="سرعة الإنترنت">Internet Speed</p>
+                                <p class="text-xl font-bold text-dark">100 Mbps 🚀</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Card - Open Now -->
+                    <div class="absolute -top-4 -right-4 glass-card p-4 rounded-2xl floating-card hidden lg:block"
+                        style="animation-delay: 1s;">
+                        <div class="flex items-center gap-3">
+                            <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                            <span class="text-sm font-bold text-dark" data-en="Open Now" data-ar="مفتوح الآن">Open
+                                Now</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         FEATURES & ABOUT SECTION
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section id="about" class="py-24 bg-white relative overflow-hidden">
+        <!-- Background Decoration -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"></div>
+
+        <div class="container-custom relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Left - Content -->
+                <div class="space-y-8">
+                    <!-- Section Header -->
+                    <div>
+                        <span
+                            class="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4"
+                            data-en="Why Choose Us" data-ar="لماذا نحن">Why Choose Us</span>
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                            <span data-en="Why Choose" data-ar="لماذا تختار">Why Choose</span>
+                            <span class="text-primary">Cozy Hive?</span>
+                        </h2>
+                        <p class="text-gray-500 text-lg leading-relaxed"
+                            data-en="We provide more than just a desk. We provide a community and an environment designed for your success."
+                            data-ar="نحن لا نقدم مجرد مكتب. نحن نقدم مجتمعًا وبيئة مصممة لنجاحك.">
+                            We provide more than just a desk. We provide a community and an environment designed for
+                            your success.
+                        </p>
+                    </div>
+
+                    <!-- Features Grid -->
+                    <div id="features-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Filled by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Right - Image -->
+                <div class="relative">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-3xl transform rotate-3 scale-105 opacity-20">
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=800&q=80"
+                        alt="Cozy Hive Community"
+                        class="relative rounded-3xl shadow-2xl w-full object-cover aspect-[4/3]">
+
+                    <!-- Stats Card -->
+                    <div class="absolute -bottom-8 -right-8 glass-card p-6 rounded-2xl hidden lg:block">
+                        <div class="grid grid-cols-2 gap-6 text-center">
+                            <div>
+                                <p class="text-3xl font-bold text-primary">4+</p>
+                                <p class="text-xs text-gray-500 uppercase" data-en="Years" data-ar="سنوات">Years</p>
+                            </div>
+                            <div>
+                                <p class="text-3xl font-bold text-secondary">500+</p>
+                                <p class="text-xs text-gray-500 uppercase" data-en="Members" data-ar="أعضاء">Members</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         PRICING SECTION
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section id="pricing" class="py-24 bg-gradient-to-b from-gray-50 to-white relative">
+        <div class="container-custom">
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="inline-block px-4 py-1 rounded-full bg-secondary/10 text-secondary text-sm font-bold mb-4"
+                    data-en="Pricing Plans" data-ar="خطط الأسعار">Pricing Plans</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" data-en="Flexible Plans for Everyone"
+                    data-ar="خطط مرنة للجميع">
+                    Flexible Plans for Everyone
+                </h2>
+                <p class="text-gray-500 text-lg" data-en="Choose the plan that fits your schedule and budget best."
+                    data-ar="اختر الخطة التي تناسب جدولك وميزانيتك.">
+                    Choose the plan that fits your schedule and budget best.
+                </p>
+            </div>
+
+            <!-- Pricing Cards Grid -->
+            <div id="pricing-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Filled by JavaScript -->
+            </div>
+
+            <!-- All Plans Include -->
+            <div class="mt-16 text-center">
+                <p class="text-gray-500 mb-6" data-en="All plans include:" data-ar="جميع الخطط تشمل:">All plans include:
+                </p>
+                <div class="flex flex-wrap justify-center gap-6 text-sm">
+                    <div class="flex items-center gap-2 text-gray-600">
+                        <i class="fas fa-wifi text-primary"></i>
+                        <span data-en="High-Speed WiFi" data-ar="إنترنت سريع">High-Speed WiFi</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-600">
+                        <i class="fas fa-coffee text-secondary"></i>
+                        <span data-en="Free Beverages" data-ar="مشروبات مجانية">Free Beverages</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-600">
+                        <i class="fas fa-bolt text-accent"></i>
+                        <span data-en="Power Outlets" data-ar="منافذ كهرباء">Power Outlets</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-600">
+                        <i class="fas fa-snowflake text-blue-500"></i>
+                        <span data-en="AC Comfort" data-ar="تكييف مريح">AC Comfort</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         LOCATIONS SECTION
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section id="locations" class="py-24 bg-white">
+        <div class="container-custom">
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4"
+                    data-en="Our Locations" data-ar="فروعنا">Our Locations</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" data-en="Find Your Space"
+                    data-ar="اعثر على مساحتك">
+                    Find Your Space
+                </h2>
+                <p class="text-gray-500 text-lg" data-en="Visit us at our convenient locations across Cairo."
+                    data-ar="زورونا في مواقعنا المريحة في القاهرة.">
+                    Visit us at our convenient locations across Cairo.
+                </p>
+            </div>
+
+            <!-- Locations Grid -->
+            <div id="locations-container" class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Filled by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         GALLERY SECTION
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section id="gallery" class="py-24 bg-dark text-white overflow-hidden">
+        <div class="container-custom">
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12">
+                <div>
+                    <span class="inline-block px-4 py-1 rounded-full bg-white/10 text-white/80 text-sm font-bold mb-4"
+                        data-en="Gallery" data-ar="معرض الصور">Gallery</span>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold" data-en="Life at Cozy Hive"
+                        data-ar="الحياة في كوزي هايف">
+                        Life at Cozy Hive
+                    </h2>
+                    <p class="text-gray-400 mt-2" data-en="A glimpse into our daily vibe and community."
+                        data-ar="لمحة عن أجواءنا اليومية ومجتمعنا.">
+                        A glimpse into our daily vibe and community.
+                    </p>
+                </div>
+
+                <!-- Navigation Arrows -->
+                <div class="flex gap-3">
+                    <button id="gallery-prev" class="gallery-nav-btn" aria-label="Previous">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button id="gallery-next" class="gallery-nav-btn" aria-label="Next">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Gallery Container -->
+            <div id="gallery-container" class="scrollbar-hide">
+                <!-- Filled by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         COMMENTS / REVIEWS SECTION
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section id="reviews" class="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+        <!-- Decorative Elements -->
+        <div class="absolute -right-20 top-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        <div class="absolute -left-20 bottom-20 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"></div>
+
+        <div class="container-custom relative z-10">
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="inline-block px-4 py-1 rounded-full bg-pink-100 text-pink-600 text-sm font-bold mb-4"
+                    data-en="Testimonials" data-ar="آراء العملاء">Testimonials</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                    <span data-en="Community Love" data-ar="حب المجتمع">Community Love</span> ❤️
+                </h2>
+                <p class="text-gray-500 text-lg" data-en="Hear what our members have to say about their experience."
+                    data-ar="استمع لما يقوله أعضاؤنا عن تجربتهم.">
+                    Hear what our members have to say about their experience.
+                </p>
+            </div>
+
+            <!-- Comments Grid -->
+            <div id="comments-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+                <!-- Filled by JavaScript -->
+            </div>
+
+            <!-- Comment Form -->
+            <div class="max-w-2xl mx-auto comment-form-container">
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                    <i class="fas fa-comment-dots text-primary"></i>
+                    <span data-en="Leave a Review" data-ar="اترك تعليقاً">Leave a Review</span>
+                </h3>
+                <form id="commentForm" class="space-y-4">
+                    <input type="text" id="commentName" placeholder="Your Name" required class="comment-input"
+                        data-placeholder-en="Your Name" data-placeholder-ar="اسمك">
+                    <textarea id="commentText" rows="4" placeholder="How was your experience?" required
+                        class="comment-input resize-none" data-placeholder-en="How was your experience?"
+                        data-placeholder-ar="كيف كانت تجربتك؟"></textarea>
+                    <button type="submit" class="comment-submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        <span data-en="Post Comment" data-ar="نشر التعليق">Post Comment</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <footer id="contact" class="footer">
+        <div class="container-custom">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand Column -->
+                <div class="lg:col-span-2">
+                    <img src="https://tabexseriesmedia.s3.eu-north-1.amazonaws.com/storeinfo/6935c04816952/instlogo1765796108.png"
+                        alt="Cozy Hive Logo" class="h-12 brightness-0 invert mb-6">
+                    <p class="text-gray-400 max-w-sm leading-relaxed mb-6"
+                        data-en="The most cozy and productive workspace in Cairo. Where creativity meets community. Join us today and experience the difference."
+                        data-ar="المساحة الأكثر راحة وإنتاجية في القاهرة. حيث يلتقي الإبداع بالمجتمع. انضم إلينا اليوم وجرب الفرق.">
+                        The most cozy and productive workspace in Cairo. Where creativity meets community. Join us today
+                        and experience the difference.
+                    </p>
+                    <!-- Social Links -->
+                    <div class="flex gap-3">
+                        <a href="https://www.facebook.com/cozyhivee" data-link="facebook" target="_blank"
+                            class="social-btn facebook" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/cozyhive_/" data-link="instagram" target="_blank"
+                            class="social-btn instagram" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/201080364642" data-link="whatsapp" target="_blank"
+                            class="social-btn whatsapp" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Column -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6" data-en="Contact Us" data-ar="تواصل معنا">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="tel:+201080364642" data-link="phone" data-show-text="true"
+                                class="flex items-center gap-3 text-gray-400 hover:text-white transition footer-link">
+                                <i class="fas fa-phone text-primary"></i>
+                                +20 108 036 4642
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/201080364642" data-link="whatsapp" target="_blank"
+                                class="flex items-center gap-3 text-gray-400 hover:text-white transition footer-link">
+                                <i class="fab fa-whatsapp text-green-500"></i>
+                                <span data-en="WhatsApp Chat" data-ar="دردشة واتساب">WhatsApp Chat</span>
+                            </a>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-400">
+                            <i class="fas fa-map-marker-alt text-secondary"></i>
+                            <span data-en="Zamalek, Cairo" data-ar="الزمالك، القاهرة">Zamalek, Cairo</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6" data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="footer-link" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                        <li><a href="#about" class="footer-link" data-en="About" data-ar="عنا">About</a></li>
+                        <li><a href="#pricing" class="footer-link" data-en="Pricing" data-ar="الأسعار">Pricing</a></li>
+                        <li><a href="#locations" class="footer-link" data-en="Locations" data-ar="الفروع">Locations</a>
+                        </li>
+                        <li><a href="#reviews" class="footer-link" data-en="Reviews" data-ar="التقييمات">Reviews</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2025 Cozy Hive. <span data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">All rights
+                        reserved.</span>
+                </p>
+                <p class="text-gray-500 text-sm flex items-center gap-2">
+                    <span data-en="Made with" data-ar="صنع بـ">Made with</span>
+                    <i class="fas fa-heart text-red-500"></i>
+                    <span>&</span>
+                    <span>🐝</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         ADMIN PANEL BUTTON (Floating)
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <a href="admin.html"
+        class="fixed bottom-6 left-6 w-14 h-14 bg-white text-dark rounded-2xl shadow-xl flex items-center justify-center hover:scale-110 hover:shadow-2xl transition-all z-40 group"
+        title="Admin Panel" aria-label="Admin Panel">
+        <i class="fas fa-cog text-lg group-hover:rotate-90 transition-transform duration-300"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
