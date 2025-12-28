@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="SpotUp - We build modern, high-converting websites for workspaces that want to stand out. Premium web design for coworking spaces and small businesses.">
+    <meta name="keywords"
+        content="web design, workspace websites, coworking space website, business website, SpotUp, premium web design">
+    <meta name="author" content="SpotUp - Yusuf & Mahmoud">
+    <title>SpotUp | Premium Web Design for Workspaces</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 'inter': ['Inter', 'sans-serif'] },
+                    colors: {
+                        dark: { 900: '#0a0a0f', 800: '#12121a', 700: '#1a1a25', 600: '#252532' },
+                        accent: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-inter bg-dark-900 text-gray-100 overflow-x-hidden">
+    <!-- Loading Screen -->
+    <div id="loader" class="loader-screen">
+        <div class="loader-content">
+            <div class="loader-logo">Spot<span>Up</span></div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden -z-10">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-5">
+                <a href="#" class="text-2xl font-bold">
+                    <span class="text-white">Spot</span><span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Up</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#pricing" class="nav-link">Pricing</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <a href="#contact" class="hidden md:inline-flex btn-primary-sm">Get Started</a>
+                <button id="mobile-menu-btn"
+                    class="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass-dark border-t border-white/10">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#home" class="block py-2 text-gray-300 hover:text-white transition">Home</a>
+                <a href="#about" class="block py-2 text-gray-300 hover:text-white transition">About</a>
+                <a href="#services" class="block py-2 text-gray-300 hover:text-white transition">Services</a>
+                <a href="#pricing" class="block py-2 text-gray-300 hover:text-white transition">Pricing</a>
+                <a href="#contact" class="block py-2 text-gray-300 hover:text-white transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="hero-content">
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-indigo-500/20 to-purple-500/20 border border-indigo-500/30 text-indigo-300 text-sm font-medium mb-8 animate-fade-in">
+                        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                        Available for New Projects
+                    </div>
+                    <h1
+                        class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-8 animate-fade-in-up">
+                        We Turn <span class="text-gradient">Workspaces</span> Into Powerful Online <span
+                            class="text-gradient">Brands</span>
+                    </h1>
+                    <p
+                        class="text-lg sm:text-xl text-gray-400 mb-10 leading-relaxed max-w-xl animate-fade-in-up delay-100">
+                        SpotUp builds modern, high-converting websites for workspaces that want to stand out. Fast
+                        delivery, stunning design, affordable pricing.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mb-12 animate-fade-in-up delay-200">
+                        <a href="#contact" class="btn-primary magnetic-btn">
+                            <span>Get Started</span>
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                        <a href="#pricing" class="btn-secondary magnetic-btn">View Pricing</a>
+                    </div>
+                    <!-- Trust Badges -->
+                    <div class="flex flex-wrap gap-6 animate-fade-in-up delay-300">
+                        <div class="trust-badge"><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg><span>Fast Delivery</span></div>
+                        <div class="trust-badge"><svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                            </svg><span>Modern Design</span></div>
+                        <div class="trust-badge"><svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg><span>Affordable</span></div>
+                    </div>
+                </div>
+                <div class="relative hero-visual animate-fade-in-up delay-200">
+                    <div class="hero-image-wrapper">
+                        <div class="hero-glow"></div>
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+                            alt="Modern workspace website design" class="rounded-2xl w-full relative z-10">
+                    </div>
+                    <div class="floating-card card-1">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-white">100+ Websites</p>
+                            <p class="text-sm text-gray-400">Successfully Delivered</p>
+                        </div>
+                    </div>
+                    <div class="floating-card card-2">
+                        <div class="flex items-center gap-1">
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            <span class="font-bold text-white">5.0</span>
+                        </div>
+                        <p class="text-sm text-gray-400">Client Rating</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 lg:py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="relative scroll-reveal">
+                    <div class="about-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=500&fit=crop"
+                            alt="SpotUp Team" class="rounded-2xl w-full">
+                        <div class="about-image-border"></div>
+                    </div>
+                    <div class="stats-card">
+                        <p class="text-4xl font-bold text-gradient">2+</p>
+                        <p class="text-gray-400">Years Experience</p>
+                    </div>
+                </div>
+                <div class="scroll-reveal">
+                    <span class="section-label">About SpotUp</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-8 leading-tight">Bringing Workspaces
+                        to the <span class="text-gradient">Digital World</span></h2>
+                    <p class="text-gray-400 mb-6 text-lg leading-relaxed">SpotUp was founded by <strong
+                            class="text-white">Yusuf & Mahmoud</strong> with a simple yet powerful vision: to help every
+                        workspace establish a strong online presence without the complexity and high costs traditionally
+                        associated with web development.</p>
+                    <p class="text-gray-400 mb-10 text-lg leading-relaxed">We understand that many workspaces lack the
+                        technical expertise or resources to create professional websites. That's why we've made it our
+                        mission to bridge this gap with speed, quality, and affordability.</p>
+                    <div class="glass-card p-6 border-l-4 border-indigo-500">
+                        <h3 class="font-semibold text-white mb-2 text-lg">Our Mission</h3>
+                        <p class="text-gray-400">Help workspaces go online fast, professionally, and attractively —
+                            empowering businesses to reach more clients and accelerate their growth.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 lg:py-32 relative">
+        <div class="section-glow"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20 scroll-reveal">
+                <span class="section-label">Our Services</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6">What We <span
+                        class="text-gradient">Offer</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Comprehensive web solutions tailored for workspaces
+                    that want to make a lasting impression online.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon"><svg class="w-7 h-7" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Website Design</h3>
+                    <p class="text-gray-400">Custom, responsive websites that capture your brand's essence and convert
+                        visitors into clients.</p>
+                </div>
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon"><svg class="w-7 h-7" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                        </svg></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Landing Pages</h3>
+                    <p class="text-gray-400">High-converting landing pages designed to maximize your marketing campaigns
+                        and capture leads.</p>
+                </div>
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon"><svg class="w-7 h-7" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Booking Websites</h3>
+                    <p class="text-gray-400">Workspace booking systems with real-time availability, online payments, and
+                        member management.</p>
+                </div>
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon"><svg class="w-7 h-7" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Admin Dashboards</h3>
+                    <p class="text-gray-400">Powerful admin panels to manage your content, bookings, clients, and
+                        analytics with ease.</p>
+                </div>
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon"><svg class="w-7 h-7" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Maintenance & Support</h3>
+                    <p class="text-gray-400">Ongoing technical support, updates, and maintenance to keep your website
+                        running smoothly.</p>
+                </div>
+                <div class="service-card scroll-reveal">
+                    <div class="service-icon"><svg class="w-7 h-7" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg></div>
+                    <h3 class="text-xl font-bold text-white mb-3">SEO Optimization</h3>
+                    <p class="text-gray-400">Search engine optimization to help your workspace rank higher and attract
+                        more organic traffic.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 lg:py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 scroll-reveal">
+                <span class="section-label">Pricing Plans</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6">Choose Your <span
+                        class="text-gradient">Perfect Plan</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Flexible packages designed to meet your workspace's
+                    unique needs and budget.</p>
+            </div>
+
+            <!-- Offer Banner -->
+            <div class="offer-banner scroll-reveal mb-16">
+                <div class="offer-banner-glow"></div>
+                <div class="relative z-10 text-center">
+                    <span
+                        class="inline-block px-4 py-1 bg-red-500/20 border border-red-500/40 rounded-full text-red-400 text-sm font-semibold mb-4">LIMITED
+                        TIME</span>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-white mb-3">🔥 New Year Offer – 40% OFF</h3>
+                    <p class="text-gray-400 mb-6">Don't miss out on this exclusive deal for a limited time only!</p>
+                    <div id="countdown" class="flex justify-center gap-4 mb-6">
+                        <div class="countdown-item"><span id="days" class="countdown-value">00</span><span
+                                class="countdown-label">Days</span></div>
+                        <div class="countdown-item"><span id="hours" class="countdown-value">00</span><span
+                                class="countdown-label">Hours</span></div>
+                        <div class="countdown-item"><span id="minutes" class="countdown-value">00</span><span
+                                class="countdown-label">Min</span></div>
+                        <div class="countdown-item"><span id="seconds" class="countdown-value">00</span><span
+                                class="countdown-label">Sec</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Cards -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Starter -->
+                <div class="pricing-card scroll-reveal">
+                    <div class="pricing-header">
+                        <span class="text-4xl mb-4 block">🌱</span>
+                        <h3 class="text-xl font-bold text-white">Starter Plan</h3>
+                        <p class="text-gray-400 text-sm">Perfect for small workspaces</p>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price-wrapper">
+                            <span class="price-original">1,500 EGP</span>
+                            <div class="price-current"><span class="text-4xl font-bold text-gradient">1000</span><span
+                                    class="text-gray-400 ml-2">EGP</span></div>
+                        </div>
+                        <ul class="features-list">
+                            <li><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Basic website setup</li>
+                            <li><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Responsive design</li>
+                            <li><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Up to 3 pages</li>
+                            <li><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Contact form</li>
+                            <li><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>1 month support</li>
+                        </ul>
+                        <a href="#contact" class="btn-outline w-full justify-center">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- Professional -->
+                <div class="pricing-card popular scroll-reveal">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <span class="text-4xl mb-4 block">⭐</span>
+                        <h3 class="text-xl font-bold text-white">Professional Plan</h3>
+                        <p class="text-gray-400 text-sm">For growing businesses</p>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price-wrapper">
+                            <span class="price-original">3,500 EGP</span>
+                            <div class="price-current"><span class="text-4xl font-bold text-gradient">2,100</span><span
+                                    class="text-gray-400 ml-2">EGP</span></div>
+                        </div>
+                        <ul class="features-list">
+                            <li><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Full website design</li>
+                            <li><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>5+ custom pages</li>
+                            <li><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>SEO optimization</li>
+                            <li><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Social media integration</li>
+                            <li><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>3 months support</li>
+                        </ul>
+                        <a href="#contact" class="btn-primary w-full justify-center">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="pricing-card scroll-reveal">
+                    <div class="pricing-header">
+                        <span class="text-4xl mb-4 block">🚀</span>
+                        <h3 class="text-xl font-bold text-white">Enterprise Plan</h3>
+                        <p class="text-gray-400 text-sm">Complete solution</p>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price-wrapper">
+                            <span class="price-original">6,000 EGP</span>
+                            <div class="price-current"><span class="text-4xl font-bold text-gradient">3,600</span><span
+                                    class="text-gray-400 ml-2">EGP</span></div>
+                        </div>
+                        <ul class="features-list">
+                            <li><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Full custom website</li>
+                            <li><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>CMS integration</li>
+                            <li><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Booking system</li>
+                            <li><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>Analytics dashboard</li>
+                            <li><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>6 months support</li>
+                        </ul>
+                        <a href="#contact" class="btn-outline w-full justify-center">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 lg:py-32 relative">
+        <div class="section-glow right"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="section-label">Get In Touch</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6">Let's Build Your <span
+                        class="text-gradient">Website Today</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Ready to take your workspace online? Get in touch
+                    with us today!</p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="scroll-reveal">
+                    <div class="space-y-6">
+                        <a href="https://wa.me/201118501275" target="_blank" class="contact-card whatsapp">
+                            <div class="contact-icon whatsapp-icon">
+                                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-white text-lg">WhatsApp - Yusuf</p>
+                                <p class="text-gray-400">+20 111 850 1275</p>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-500 ml-auto" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/201274311482" target="_blank" class="contact-card whatsapp">
+                            <div class="contact-icon whatsapp-icon">
+                                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-white text-lg">WhatsApp - Mahmoud</p>
+                                <p class="text-gray-400">+20 127 431 1482</p>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-500 ml-auto" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                        <div class="social-links">
+                            <p class="text-gray-400 mb-4">Follow us on social media</p>
+                            <div class="flex gap-4">
+                                <a href="#" class="social-icon"><svg class="w-5 h-5" fill="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                    </svg></a>
+                                <a href="#" class="social-icon"><svg class="w-5 h-5" fill="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                    </svg></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-reveal">
+                    <form id="contact-form" class="glass-card p-8">
+                        <div class="mb-6">
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                            <input type="text" id="name" name="name" required class="form-input"
+                                placeholder="Your name">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                            <input type="email" id="email" name="email" required class="form-input"
+                                placeholder="your@email.com">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" required class="form-input resize-none"
+                                placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full justify-center">
+                            <span>Send Message</span>
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <a href="#" class="text-2xl font-bold inline-block mb-4">
+                        <span class="text-white">Spot</span><span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Up</span>
+                    </a>
+                    <p class="text-gray-400 mb-6 max-w-md">Professional website solutions for workspaces. We help
+                        businesses go online fast, professionally, and affordably.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="social-icon-sm"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg></a>
+                        <a href="#" class="social-icon-sm"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg></a>
+                        <a href="https://wa.me/201118501275" class="social-icon-sm"><svg class="w-5 h-5"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-indigo-400 transition">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-indigo-400 transition">About</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-indigo-400 transition">Services</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-indigo-400 transition">Pricing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Contact</h4>
+                    <ul class="space-y-3">
+                        <li><a href="https://wa.me/201118501275"
+                                class="text-gray-400 hover:text-indigo-400 transition">+20 111 850 1275</a></li>
+                        <li><a href="https://wa.me/201274311482"
+                                class="text-gray-400 hover:text-indigo-400 transition">+20 127 431 1482</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center">
+                <p class="text-gray-500">&copy; 2025 SpotUp. All rights reserved. Made with ❤️ by Yusuf & Mahmoud</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
